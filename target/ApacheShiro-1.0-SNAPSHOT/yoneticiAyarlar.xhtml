@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/TemplateSayfamiz.xhtml">
+            <ui:define name="title">Yönetici Ayarlar</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <h:commandButton value="Çıkış" class="button" action="#{loginBean.logout()}" style="float: right"/>
+                       <table id="tablo" align="center">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <h:outputText value=""/>
+                                    </td>
+                                    <td>
+                                        <h:outputText value=""/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="Kaçak İşlemleri"/>
+                                    </td>
+                                    <td>
+                                        <h:commandButton class="button" value="Geç" action="kacakIslemleri.xhtml?faces-redirect=true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="Kayıp İşlemleri"/>
+                                    </td>
+                                    <td>
+                                        <h:commandButton class="button" value="Geç" action="kayipIslemleri.xhtml?faces-redirect=true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="Haber İşlemleri"/>
+                                    </td>
+                                    <td>
+                                        <h:commandButton class="button" value="Geç" action="haberIslemleri.xhtml?faces-redirect=true"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                       </table>       
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

@@ -1,0 +1,219 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #333333;
+	font-family: 'Muli', sans-serif;
+	font-size: 12pt;
+	font-weight: 300;
+	color: #363636;
+}
+.yazi{
+    margin: 30px;
+    padding: 10px;
+    width: 900px;
+    text-align: justify;
+}
+.title h2
+	{
+		letter-spacing: 0.20em;
+		font-weight: 700;
+		font-size: 2em;
+		color: #0099CC;
+	}
+ .title h1
+	{
+		letter-spacing: 0.20em;
+		font-weight: 700;
+		font-size: 2em;
+		color: #0099CC;
+	}       
+ ul.style2
+	{
+	list-style-type: none;
+        margin: 25px;
+        padding: 0;
+        width: 300px;
+        background-color: #e2e2e2;
+	}
+ul.style2 li a
+	{
+        display: block;
+        color: #000;
+        padding: 8px 0 8px 16px;
+        text-decoration: none;
+	} 
+ul.style2 li a:hover {
+    background-color: #0099CC;
+    color: white;
+}
+#wrapper {
+	background: #f1f1f1;
+        }
+.container {
+	width: 1200px;
+	margin: 0px auto;
+}
+#header-wrapper
+{
+	overflow: hidden;
+	background-size: 100%;
+	background: #f1f1f1;
+}
+#header{
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+#content{
+    position: relative;
+    overflow: hidden;
+    padding: 2em 2em 2em 2em;
+    color: #222222;
+    text-align: center;
+}
+.button {
+    background-color: #0099CC;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+}
+.button:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+#logo 
+	{
+            background: url("http://www.interpol.int/extension/design_sqli/design/design_sqli/images/bg_header.jpg");
+            padding: 35px;
+	}
+ #menu-wrapper
+{
+	background: #0099CC;
+}
+#menu {
+	overflow: hidden;
+	height: 45px;
+}
+#menu ul {
+        margin: 0;
+        padding: 5px 0px 0px 0px;
+        text-align: center;
+        list-style: none;
+	line-height: normal;
+}
+    #menu li {
+	display: inline-block;
+    }
+    #menu a {
+	display: block;
+        color: white;
+        text-align: center;
+        padding: 10px 15px;
+        text-decoration: none;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 0.80em;
+	font-weight: 600;
+	border: none;
+        }
+        #menu li a:hover {
+            background-color: #ffffff;
+            color: #0099CC;
+        }
+
+    #leftMenu{
+        
+	width: 350px;
+        float: left;
+        color: #ffffff;
+        text-align: center;
+    }
+        leftMenu .title h2{
+            font-size: 1.6em;  
+    } 
+        #copyright
+	{
+		overflow: hidden;
+		padding: 1em 0em;
+		text-align: center;
+                height: 100px;
+	}
+	
+	#copyright p
+	{
+		letter-spacing: 0.20em;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 0.80em;
+		color: #6F6F6F;
+	}
+	
+        #loginPage
+        {
+            position: relative;
+            text-align: center;
+        }
+        #tablo tr:nth-child(even) 
+        {
+            background-color: #e2e2e2;
+        }
+        
+        #tablo td
+        {
+            height: 30px;
+            width: 200px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+             
+        }
+        .resim
+        {
+            height: 300px;
+            width: 300px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        .baslik{
+            font-size: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .icerik{
+            font-size: 15px;
+            text-decoration: none;
+            font-style: oblique;
+        }
+        .label{
+            font-weight: bold;
+            float: left;
+        }
+        .bilgi{
+            text-transform: uppercase;
+            font-style: oblique;
+            font-size: 10px;
+            float: left;
+        }
+        .bilgiler{
+            background-color: #f2f2f2;
+            position: relative;
+            width: 500px;
+            height: 300px;
+        }
+        #page .ortaSayfa{
+            margin: 100px 150px 100px 80px;        
+        }
+        .anasayfa{
+            background-color: #f2f2f2;
+        }
+        .anasayfa2{
+            width: 100px;
+            height: 100px;
+            background-color: #f2f2f2;
+        }

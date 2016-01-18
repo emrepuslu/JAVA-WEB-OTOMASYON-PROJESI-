@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+        
+    <h:head>
+        <title>ÜYE GİRİŞİ</title>
+    </h:head>
+    <h:body>
+             <ui:composition template="template/TemplateSayfamiz.xhtml">
+                <ui:define name="title">Yönetici Girişi</ui:define>
+                <ui:define name="content">
+                     <div class="title">
+                         <h2 >YÖNETİCİ GİRİŞİ</h2>
+                    </div>
+                    <h:form prependId="false" >
+                        <div id="loginPage">
+                        <p:messages showDetail="true" />
+                        <table id="tablo" align="center">
+                            <tbody>
+                                <tr>
+                                    <td>Kullanıcı Adı</td>
+                                    <td><p:inputText value="#{loginBean.adi}" size="20"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Parola</td>
+                                    <td><p:password value="#{loginBean.password}" size="20"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Beni Hatırla</td>
+                                    <td><p:selectBooleanCheckbox value="#{loginBean.rememberMe}" /></td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <h:commandButton action="#{loginBean.login()}" value="GİRİŞ YAP" class="button"/>
+                        <br/>
+                       </div> 
+                    </h:form>
+                </ui:define>
+            </ui:composition>
+        
+       
+    </h:body>
+</html>

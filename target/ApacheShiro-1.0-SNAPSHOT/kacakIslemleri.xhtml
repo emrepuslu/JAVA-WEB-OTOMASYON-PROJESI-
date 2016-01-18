@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/TemplateSayfamiz.xhtml">
+            <ui:define name="title">Kaçak İşlemleri</ui:define>
+            <ui:define name="content">
+                <h:form  id="form">
+                    <p:growl id="growl" showDetail="true" sticky="true" />  
+                    <p:growl id="msgs" showDetail="true"/>
+                    <h:commandButton value="Geri" class="button" style="float: right" action="/yoneticiAyarlar.xhtml?faces-redirect=true"/>
+                    <br/>
+                    <br/>
+                    <div class="title">
+                        <h2 class="title">Kaçak Ekleme</h2>
+                    </div>
+                    <table id="tablo" align="center">
+                        <tbody >
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Ad"/>
+                                </td>
+                                <td>
+                                    <p:inputText id="text" value="#{kacakEkle.ad}" size="20" maxlength="25">
+                                        <f:validateLength minimum="3" maximum="25"/>
+                                        <p:clientValidator/>
+                                    </p:inputText>
+                                    <p:message for="text" display="icon" />
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Yaş Aralığı"/>
+                                </td>
+                                <td>
+                                    <p:inputMask value="#{kacakEkle.yas}" size="20" mask="99-99"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Soyad"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kacakEkle.soyad}" size="20" maxlength="25"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Cinsiyet"/>
+                                </td>
+                                <td>
+                                    <h:selectOneRadio id="cinsiyet" value="#{kacakEkle.cinsiyet}">
+                                        <f:selectItem itemLabel="Erkek" itemValue="erkek"/>
+                                        <f:selectItem itemLabel="Kadın" itemValue="kadin"/>
+                                    </h:selectOneRadio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Uyruk"/>
+                                </td>
+                                <td>
+                                    <h:selectOneMenu value="#{kacakEkle.uyruk}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="ABD" itemValue="abd"/>
+                                        <f:selectItem itemLabel="ALMANYA" itemValue="almanya"/>
+                                        <f:selectItem itemLabel="AFGANİSTAN" itemValue="afg"/>
+                                        <f:selectItem itemLabel="BANGLADEŞ" itemValue="bang"/>
+                                        <f:selectItem itemLabel="BELÇİKA" itemValue="bel"/>
+                                        <f:selectItem itemLabel="CEZAYİR" itemValue="cez"/>
+                                        <f:selectItem itemLabel="ERMENİSTAN" itemValue="erm"/>
+                                        <f:selectItem itemLabel="FAS" itemValue="fas"/>
+                                        <f:selectItem itemLabel="HİNDİSTAN" itemValue="hin"/>
+                                        <f:selectItem itemLabel="IRAK" itemValue="irak"/>
+                                        <f:selectItem itemLabel="İRAN" itemValue="iran"/>
+                                    </h:selectOneMenu>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Göz Rengi"/>
+                                </td>
+                                <td>
+                                    <h:selectOneMenu value="#{kacakEkle.gozRengi}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="Siyah" itemValue="siyah"/>
+                                        <f:selectItem itemLabel="Kahverengi" itemValue="kahverengi"/>
+                                         <f:selectItem itemLabel="Ela" itemValue="ela"/>
+                                        <f:selectItem itemLabel="Yeşil" itemValue="yesil"/>
+                                         <f:selectItem itemLabel="Mavi" itemValue="mavi"/>
+                                        <f:selectItem itemLabel="Gri" itemValue="gri"/>
+                                         <f:selectItem itemLabel="Kehribar" itemValue="kehribar"/>
+                                        <f:selectItem itemLabel="Kırmızı" itemValue="kirmizi"/>
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Hakkında"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kacakEkle.hakkinda}" size="20"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Saç Rengi"/>
+                                </td>
+                                <td>
+                                    <h:selectOneMenu value="#{kacakEkle.sacRengi}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="Kahverengi" itemValue="kahverengi"/>
+                                         <f:selectItem itemLabel="Siyah" itemValue="siyah"/>
+                                        <f:selectItem itemLabel="Sarı" itemValue="sari"/>
+                                         <f:selectItem itemLabel="Beyaz" itemValue="beyaz"/>
+                                        <f:selectItem itemLabel="Gri" itemValue="gri"/>
+                                         <f:selectItem itemLabel="Turuncu" itemValue="turuncu"/>
+                                        <f:selectItem itemLabel="Kızıl" itemValue="kizil"/>
+                                    </h:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Resim"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kacakEkle.resim}" size="20"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p:commandButton value="Ekle" action="#{kacakEkle.ekle()}" class="button" update="growl"/>
+                    <br/>
+                    <br/>
+                    <div class="title">
+                        <h2 class="title">Kaçak Silme</h2>
+                    </div>
+                    
+                    <table id="tablo" align="center">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="ID"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kacakSil.id}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p:commandButton value="Sil" action="#{kacakSil.sil()}" class="button" update="growl"/>
+                    
+                    <br/>
+                    <br/>
+                   
+                    <h:commandButton value="Güncelleme işlemleri" action="kacakGuncelleme.xhtml"/>
+                    
+                    </h:form>
+            </ui:define>
+        </ui:composition>  
+    </h:body>
+</html>
+

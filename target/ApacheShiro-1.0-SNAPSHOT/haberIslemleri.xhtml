@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/TemplateSayfamiz.xhtml">
+            <ui:define name="title">Haber İşlemleri</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:growl id="growl" showDetail="true" sticky="true" />  
+                    <h:commandButton value="Geri" class="button" style="float: right" action="/yoneticiAyarlar.xhtml?faces-redirect=true"/>
+                    <br/>
+                    <br/>
+                    <div class="title">
+                        <h2 class="title">Haber Ekleme</h2>
+                    </div>
+                    <table id="tablo" align="center">
+                        <tbody >
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Resim"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{haberEkle.resim}" size="20"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Başlık"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{haberEkle.baslik}" size="20"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="İçerik"/>
+                                </td>
+                                <td>
+                                    <p:inputTextarea value="#{haberEkle.icerik}"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p:commandButton value="Ekle" class="button" action="#{haberEkle.ekle()}"  update="growl"/>
+                    <br/>
+                    <br/>
+                    <table id="tablo" align="center">
+                        <tbody >
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Başlık"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{haberSil.baslik}" size="20"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p:commandButton value="Sil" class="button" action="#{haberSil.sil()}"  update="growl"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>    
+    </h:body>
+</html>
+

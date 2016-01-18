@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/TemplateSayfamiz.xhtml">
+            <ui:define name="title">Ekleme</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:accordionPanel dynamic="true" cache="true">
+                     <p:tab title="KAYIP ARAMA KRİTERLERİ"> 
+                 <table id="tablo" align="center">
+                        <tbody >
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Ad"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kayipArama.text}" size="20"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Yaş Aralığı"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kayipArama.yas}" size="20" 
+                                                 title="Yaş aralığını giriniz. ÖRN(15-20)"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Soyad"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kayipArama.soyad}" size="20"/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Cinsiyet"/>
+                                </td>
+                                <td>
+                                    <p:selectOneRadio id="cinsiyet" value="#{kayipArama.cinsiyet}">
+                                        <f:selectItem itemLabel="Erkek" itemValue="erkek"/>
+                                        <f:selectItem itemLabel="Kadın" itemValue="kadin"/>
+                                    </p:selectOneRadio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputText value="Uyruk"/>
+                                </td>
+                                <td>
+                                    <p:selectOneMenu value="#{kayipArama.uyruk}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="ABD" itemValue="abd"/>
+                                        <f:selectItem itemLabel="ALMANYA" itemValue="almanya"/>
+                                        <f:selectItem itemLabel="AFGANİSTAN" itemValue="afg"/>
+                                        <f:selectItem itemLabel="BANGLADEŞ" itemValue="bang"/>
+                                        <f:selectItem itemLabel="BELÇİKA" itemValue="bel"/>
+                                        <f:selectItem itemLabel="CEZAYİR" itemValue="cez"/>
+                                        <f:selectItem itemLabel="ERMENİSTAN" itemValue="erm"/>
+                                        <f:selectItem itemLabel="FAS" itemValue="fas"/>
+                                        <f:selectItem itemLabel="HİNDİSTAN" itemValue="hin"/>
+                                        <f:selectItem itemLabel="IRAK" itemValue="irak"/>
+                                        <f:selectItem itemLabel="İRAN" itemValue="iran"/>
+                                    </p:selectOneMenu>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Göz Rengi"/>
+                                </td>
+                                <td>
+                                    <p:selectOneMenu value="#{kayipArama.gozRengi}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="Siyah" itemValue="siyah"/>
+                                        <f:selectItem itemLabel="Kahverengi" itemValue="kahverengi"/>
+                                         <f:selectItem itemLabel="Ela" itemValue="ela"/>
+                                        <f:selectItem itemLabel="Yeşil" itemValue="yesil"/>
+                                         <f:selectItem itemLabel="Mavi" itemValue="mavi"/>
+                                        <f:selectItem itemLabel="Gri" itemValue="gri"/>
+                                         <f:selectItem itemLabel="Kehribar" itemValue="kehribar"/>
+                                        <f:selectItem itemLabel="Kırmızı" itemValue="kirmizi"/>
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p:outputLabel value="Hakkında"/>
+                                </td>
+                                <td>
+                                    <p:inputText value="#{kayipArama.hakkinda}" size="20"
+                                                 title="Şahsın en belirgin özelliğini giriniz."/>
+                                </td>
+                                <td>
+                                    <p:outputLabel value="Saç Rengi"/>
+                                </td>
+                                <td>
+                                    <p:selectOneMenu value="#{kayipArama.sacRengi}">
+                                        <f:selectItem itemLabel="Seçiniz" itemValue="Secilmedi"/>
+                                        <f:selectItem itemLabel="Kahverengi" itemValue="kahverengi"/>
+                                         <f:selectItem itemLabel="Siyah" itemValue="siyah"/>
+                                        <f:selectItem itemLabel="Sarı" itemValue="sari"/>
+                                         <f:selectItem itemLabel="Beyaz" itemValue="beyaz"/>
+                                        <f:selectItem itemLabel="Gri" itemValue="gri"/>
+                                         <f:selectItem itemLabel="Turuncu" itemValue="turuncu"/>
+                                        <f:selectItem itemLabel="Kızıl" itemValue="kizil"/>
+                                    </p:selectOneMenu>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h:commandButton value="Ara" class="button" action="#{kayipArama.kayipAra()}"/>
+                    
+                    
+                    <br/>
+                    <p:dataTable value="#{kayipArama.liste}" var="arama">
+                            <p:column>
+                                <p:graphicImage value="#{arama.resim}" class="resim"/>
+                        </p:column>
+                        <p:column>
+                            <div class="bilgiler">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><p:outputLabel value="Ad : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.ad}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Soyad : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.soyad}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Uyruk : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.uyruk}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Hakkında : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.hakkinda}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Yaş : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.yas}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Cinsiyet : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.cinsiyet}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Göz Rengi : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.gozRengi}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Saç Rengi : " class="label"/></td>
+                                            <td><p:outputLabel value="#{arama.sacRengi}" class="bilgi"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                    <br/>
+                     </p:tab>
+                    </p:accordionPanel>
+                    <p:accordionPanel dynamic="true" cache="true">
+                     <p:tab title="TÜM KAYITLAR"> 
+                    <p:dataTable value="#{kayipBean.liste}" var="kayip" id="dataTable">
+                            <p:column>
+                                <p:graphicImage value="#{kayip.resim}" class="resim"/>
+                        </p:column>
+                        <p:column>
+                            <div class="bilgiler">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><p:outputLabel value="Ad : " class="label"/></td>
+                                            <td> <p:outputLabel value="#{kayip.ad}" class="bilgi"/> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Soyad : " class="label"/></td>
+                                            <td><p:outputLabel value="#{kayip.soyad}" class="bilgi"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td><p:outputLabel value="Uyruk : " class="label"/></td>
+                                            <td><p:outputLabel value="#{kayip.uyruk}" class="bilgi"/></td>
+                                        </tr>
+                                         <tr>
+                                            <td><p:outputLabel value="Hakkında : " class="label"/></td>
+                                            <td><p:outputLabel value="#{kayip.hakkinda}" class="bilgi"/></td>
+                                        </tr>   
+                                        <tr>
+                                            <td><p:outputLabel value="Yaş : " class="label"/> </td>
+                                            <td><p:outputLabel value="#{kayip.yas}" class="bilgi"/></td>
+                                        </tr>       
+                                        <tr>
+                                            <td><p:outputLabel value="Cinsiyet : " class="label"/></td>
+                                            <td><p:outputLabel value="#{kayip.cinsiyet}" class="bilgi"/></td>
+                                        </tr>       
+                                        <tr>
+                                            <td><p:outputLabel value="Göz Rengi : " class="label"/></td>
+                                            <td><p:outputLabel value="#{kayip.gozRengi}" class="bilgi"/></td>
+                                        </tr>    
+                                        <tr>
+                                            <td><p:outputLabel value="Saç Rengi : " class="label"/> </td>
+                                            <td><p:outputLabel value="#{kayip.sacRengi}" class="bilgi"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </p:column>
+                    </p:dataTable>
+                     </p:tab>
+                    </p:accordionPanel>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

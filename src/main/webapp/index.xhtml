@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="template/TemplateSayfamiz.xhtml">
+            <ui:define name="title">Ana Sayfa</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:dataTable value="#{haberBean.liste}" var="haber" rows="1">
+                        <p:column headerText="Gündem">
+                            <table id="tablo" class="anasayfa2">
+                                <tbody>
+                                    <tr>
+                                        <td><p:graphicImage value="#{haber.resim}" class="resim"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td><p:outputLabel value="#{haber.baslik}" class="baslik"/></td>
+                                    </tr>        
+                                </tbody>
+                            </table>
+                        </p:column>
+                    </p:dataTable>    
+                    <p:commandLink value="Okumaya devam et" action="/haberler.xhtml?faces-redirect=true"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

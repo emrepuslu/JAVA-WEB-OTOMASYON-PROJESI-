@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <script>// Güncelleme işlemi sonucunu pop-up olarak bize verecek.
+            function mesaj(){
+                if(#{g.Guncelle()})
+                alert("Güncelleme Başarılı.");
+                else
+                alert("Güncelleme Başarısız.");
+            }
+        </script>
+    </h:head>
+    <h:body>
+        
+                    
+       <h:form>
+            <h:inputText value="#{k.id}"/><!--Girilen adı javakoduna yollayacak-->
+            <h:commandButton action="#{k.KayitCek}" value="GÖNDER"/><!--Kaydı veritabanından çeken metodu çalıştıracak.-->
+            <h:dataTable value="#{k.liste}" var="yaz"><!--Gelen sonuçlar buraya aktarılacak.-->
+            <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.ad}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.ad}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+            <h:column>
+                <f:facet name="header">soyad</f:facet>
+                <h:inputText value="#{yaz.soyad}" size="10" rendered="#{yaz.guncellenebilirlik}"/>
+                <h:outputText value="#{yaz.soyad}"  rendered="#{not yaz.guncellenebilirlik}"/>
+            </h:column>
+                 <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.uyruk}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.uyruk}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+              <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.hakkinda}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.hakkinda}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+              <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.yas}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.yas}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+              <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.cinsiyet}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.cinsiyet}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+              <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.sacRengi}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.sacRengi}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+              <h:column>
+                <f:facet name="header">Adi</f:facet>
+                <h:inputText value="#{yaz.gozRengi}" rendered="#{yaz.guncellenebilirlik}"/>
+                <!--Güncelle linkine tıklayınca bu kısım devreye girecek.-->
+                <h:outputText value="#{yaz.gozRengi}" rendered="#{not yaz.guncellenebilirlik}"/>
+                <!--Kayıt çekilince ilk burası gelecek. rendered kısmı görünürlüğü işaret ediyor.-->
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action </f:facet>
+                    <h:commandLink value="Güncelle" action="#{k.guncellenebilirligiDegistir(yaz)}" 
+                                   rendered="#{not yaz.guncellenebilirlik}"/>
+                    <!--Güncellenebilrliği aktifleştirecek link.-->
+            </h:column>
+        </h:dataTable>
+            <h:commandButton value="Değişiklikleri Kaydet" action="#{k.DegisikliğiKaydet()}"/>
+            <!--Yapılan güncellmeyi listeye kayıt edecek.-->
+            <h:commandButton value="Güncellemeleri Veri Tabanına Kaydet" action="#{k.Guncelle}" onclick="mesaj()"/>
+            <!--Güncellemeyi veri tabanına aktaracak ve alert verdirecek.--> 
+        </h:form>
+                 
+    </h:body>
+</html>
+
